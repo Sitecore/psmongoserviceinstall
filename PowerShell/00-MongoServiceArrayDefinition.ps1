@@ -1,6 +1,4 @@
 ﻿
-CD C:\Sitecore\Mongo
-
 $mongoservicepath = "{0}Sitecore\Mongo\{1}\"
 
 $servicedirname = "config"

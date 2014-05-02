@@ -4,8 +4,8 @@
 $rootDir = Get-Item -Path "."
 $configDir = $rootDir.CreateSubdirectory($servicedirname)
 
-$serviceUserName = ".\azureuser"
-$servicePassword = "Test123!"
+$serviceUserName = ".\username"
+$servicePassword = "password"
 
 foreach($service in $mongoservices)
 {
