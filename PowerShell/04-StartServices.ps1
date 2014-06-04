@@ -1,16 +1,17 @@
-﻿# .\MongoServices.ps1
-#CD C:\Sitecore\Mongo
-
+﻿
 foreach($service in $mongoservices)
 {
-    $serviceName = $service["ServiceName"]    
+    $serviceName = $service["ServiceName"]   
+    $servicePort = $service["Port"] 
     
     "Starting Service: " + $serviceName
     
     Start-Service -Name $serviceName
         
     "Finished Starting Service"
+    
+    "need to wait"
+    
+    "db.collections()" | ..\bin\mongo.exe --port $servicePort
 
 }
-
-"rs.conf()" | .\mongodb-win32-x86_64-2008plus-2.4.5\bin\mongo.exe

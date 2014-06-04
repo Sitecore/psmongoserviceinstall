@@ -1,7 +1,5 @@
-﻿# Create Config
-# .\MongoServices.ps1
-
-$rootDir = Get-Item -Path "."
+﻿
+$rootDir = Get-Item -Path ".."
 $configDir = $rootDir.CreateSubdirectory($servicedirname)
 
 
@@ -37,10 +35,3 @@ foreach($service in $mongoservices)
     "Finished writing file"
 }
 
-#1..100 | %{
-#    echo $input
-#}
-
-#$mongoservices | %{
-#    $input["Disk"]
-#}

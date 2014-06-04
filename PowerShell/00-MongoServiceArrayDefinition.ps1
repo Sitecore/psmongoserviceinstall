@@ -1,12 +1,24 @@
-﻿
-$mongoservicepath = "{0}Sitecore\Mongo\{1}\"
+﻿#cd C:\Sitecore\Development\MONGOPS\psmongoserviceinstall\PowerShell
+
+$mongoservicepath = "{0}Sitecore\Servers\MongoData\{1}\"
 
 $servicedirname = "config"
+$serviceNamePrefix = "SCXDB"
+$serviceUserName = ".\adminuser"
+$servicePassword = "password"
+$hostName = "localhost"
+$replicaSetId = "rs1"
+
+$rootDir = Get-Item -Path ".."
+$configDir = $rootDir.CreateSubdirectory($servicedirname)
+
 
 # {0}: "Path"; {1}: "ServiceName"
 
 $mongoservices = @( 
-     @{ "ServiceName" = "XDB-00-USWEST-00-Primary"; "Disk" = "D:"; "Port" = 27017; "Monitor" = 28017; "Priority" = 100; "ReplicaSet" = "rs1" };
-     @{ "ServiceName" = "XDB-00-USWEST-01-Secondary"; "Disk" = "F:"; "Port" = 27018; "Monitor" = 28018; "Priority" = 90; "ReplicaSet" = "rs1" };
-     @{ "ServiceName" = "XDB-00-USWEST-02-Secondary"; "Disk" = "G:"; "Port" = 27019; "Monitor" = 28019; "Priority" = 80; "ReplicaSet" = "rs1" };
+     @{ "ServiceName" = $serviceNamePrefix+"-00-Primary"; "Disk" = "C:"; "Port" = 27017; "Monitor" = 28017; "HostName" = $hostName; "Priority" = 100; "ReplicaSet" = $replicaSetId };
+     @{ "ServiceName" = $serviceNamePrefix+"-01-Secondary"; "Disk" = "C:"; "Port" = 27018; "Monitor" = 28018; "HostName" = $hostName; "Priority" = 90; "ReplicaSet" = $replicaSetId };
+     @{ "ServiceName" = $serviceNamePrefix+"-02-Secondary"; "Disk" = "C:"; "Port" = 27019; "Monitor" = 28019; "HostName" = $hostName; "Priority" = 80; "ReplicaSet" = $replicaSetId };
 )
+
+$mongoservices

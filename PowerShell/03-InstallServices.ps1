@@ -1,11 +1,4 @@
-﻿# .\MongoServices.ps1
-# CD C:\Sitecore\Mongo
-
-$rootDir = Get-Item -Path "."
-$configDir = $rootDir.CreateSubdirectory($servicedirname)
-
-$serviceUserName = ".\username"
-$servicePassword = "password"
+﻿
 
 foreach($service in $mongoservices)
 {
@@ -20,7 +13,7 @@ foreach($service in $mongoservices)
     "Installing Service: " + $serviceName
     "Config File: " + $configFileName
     
-    mongodb-win32-x86_64-2008plus-2.4.5\bin\mongod.exe --config $configFileName --install --serviceName $serviceName --serviceDisplayName $serviceName --serviceUser $serviceUserName --servicePassword $servicePassword
+    ..\bin\mongod.exe --config $configFileName --install --httpinterface --serviceName $serviceName --serviceDisplayName $serviceName --serviceUser $serviceUserName --servicePassword $servicePassword
         
     "Finished Installing Service"
 

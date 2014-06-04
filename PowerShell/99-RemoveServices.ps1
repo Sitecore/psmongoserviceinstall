@@ -1,5 +1,4 @@
-﻿# .\MongoServices.ps1
-# CD C:\Sitecore\Mongo
+﻿
 
 foreach($service in $mongoservices)
 {
@@ -7,7 +6,7 @@ foreach($service in $mongoservices)
 
     "Removing Service: " + $serviceName
 
-    mongodb-win32-x86_64-2008plus-2.4.5\bin\mongod.exe --remove --serviceName $serviceName
+    ..\bin\mongod.exe --remove --serviceName $serviceName
     
     "Finished Removing Service"
 }
