@@ -16,4 +16,4 @@ Instructions
 3. Execute the scripts in order starting with 01-06 to install the Mongo DB Windows service
 4. Execute the last scripts to stop and remove the Windows service
 
-I recommend you use the Powershell IDE and open all files needed at once. 
+I recommend you use the Powershell IDE and open all files needed at once (using an Administrator account). 
